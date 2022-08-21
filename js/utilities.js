@@ -12,14 +12,6 @@ function getNoNumber(inputValue) {
     }
     return false;
 }
-
-function getElementValueById(elementFieldId) {
-    const elementTotal = document.getElementById(elementFieldId);
-    const previousElementTotalString = elementTotal.innerText;
-    const previousElementTotal = parseFloat(previousElementTotalString);
-    return previousElementTotal;
-}
-
 function setTextElementValueById(elementFieldId, newValue) {
     const textEelment = document.getElementById(elementFieldId);
     textEelment.innerText = newValue;

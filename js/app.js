@@ -7,11 +7,9 @@ document.getElementById("btn-calculate").addEventListener("click", function () {
         alert("Please put here a valid number");
         return;
     }
-    const previousTotalExpenses = getElementValueById("total-expenses");
-    const previousBalanceAmount = getElementValueById("balance");
-    const newTotalExpenses = previousTotalExpenses + foodCostAmount + rentCostAmount + clothesCostAmount;
+    const newTotalExpenses = foodCostAmount + rentCostAmount + clothesCostAmount;
     setTextElementValueById("total-expenses", newTotalExpenses);
-    const newBalanceAmount = incomeAmount - (previousBalanceAmount + newTotalExpenses);
+    const newBalanceAmount = incomeAmount - newTotalExpenses;
     setTextElementValueById("balance", newBalanceAmount);
     document.getElementById("btn-save").addEventListener("click", function () {
         const savingPercentage = getInputFieldValueById("saving-percentage-input");
@@ -19,11 +17,9 @@ document.getElementById("btn-calculate").addEventListener("click", function () {
             alert("Please put here a valid number");
             return;
         }
-        const previousSavingAmount = getElementValueById("saving-amount");
-        const previousRemainingBalance = getElementValueById("remaining-balance");
-        const newSavingAmount = previousSavingAmount + (incomeAmount * (savingPercentage / 100));
+        const newSavingAmount = (incomeAmount * (savingPercentage / 100));
         setTextElementValueById("saving-amount", newSavingAmount);
-        const newRemainingBalance = previousRemainingBalance + (newBalanceAmount - newSavingAmount);
+        const newRemainingBalance = (newBalanceAmount - newSavingAmount);
         setTextElementValueById("remaining-balance", newRemainingBalance);
     })
 })
